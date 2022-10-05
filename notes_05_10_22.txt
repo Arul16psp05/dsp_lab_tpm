@@ -1,0 +1,98 @@
+python3 tpm_hdf5_reader_power_RFI-mit_all_files.py 7 60
+ 1146  python3 tpm_hdf5_reader_power_RFI-mit_all_files.py 1 60 40 80
+ 1147  python3 tpm_hdf5_reader_power_RFI-mit_all_files.py 1 60 81 120
+ 1148  python3 tpm_hdf5_reader_power_RFI-mit_all_files.py 1 60 121 160
+ 1149  python3 tpm_hdf5_reader_power_RFI-mit_all_files.py 1 60 161 200
+ 1150  python3 tpm_hdf5_reader_power_RFI-mit_all_files.py 1 60 201 225
+ 1151  python3 tpm_hdf5_reader_power_RFI-mit_all_files.py 1 60 226 255
+ 
+ plt.twiny() # secondry axis ploting
+
+
+9/Sep/2022
+
+dsp@RRI-D-595:/data/dsp/TPM/site_data$ python3 tpm_hdf5_reader_power_RFI-mit_all_files_Frange_time_range_v1.py 1 60 40 60 2022 3 3 0 0 2022 3 11 0 0
+
+12/sep/2022
+
+python3 tpm_hdf5_reader_power_RFI-mit_all_files_Frange_time_range_v2.py 1 60 40 60 2022,3,7,10,0 2022,3,9,14,0
+
+13/sep/2022
+
+aquiring data from osciloscope in raw format & save in hdf5 files
+python3 /data/dsp/oscilloscope/acq_md03054_raw_data_HDF5.py
+
+#dev
+python3 tpm_hdf5_reader_power_RFI-mit_all_files_Frange_time_range_v2p1.py /data/dsp/TPM/site_data/copy_of_site_data/2022-03-07_Terra15_Tile-16-003/2022-03-07_Terra15 0 60 40 60 2022,3,7,10,0 2022,3,8,14,0
+
+18/sep/2022
+tpm_hdf5_reader_power_RFI-mit_all_files_Frange_time_range_v2.py
+--> quick_view_hdf5tpm_sky_scan_v2.py
+
+hdf5tpm_sky_scan_quick_view_v2.py
+
+sky_scan_quick_view_tpm_v2.py
+
+tpm_sky_scan_quick_view_v2.py
+
+GitHub Notes 18/9/22
+ 1319  sudo apt install git
+ 1320  git init
+ 1321  git add tpm_sky_scan_quick_view_v2.py
+ 1324  git config --global user.email arulpandian05101995@gmail.com
+ 1325  git config --global user.name  Arul16psp05
+ 1326  git commit -m 'Produces a quick view sky scan plot -ver 2.0' 
+ 1327  git remote add origin git@github.com:Arul16psp05/tpm-raw-burst-quick-view.git
+ 1330  git push -u -f origin master
+ git switch -c dev
+ git push -u -f origin dev
+ 
+ 1358  git switch -c main
+ 1359  git add tpm_data_32_input_comb_plot.py
+ 1360  git commit -m 'Power and dynamic spectra for all inputs. Single folder data used'
+ 1361  git push -u -f origin main
+
+19/sep/2022
+
+git switch dev
+git add tpm_sky_scan_quick_view_v2.py
+git commit -m 'corrected chanels numbers from 512 to 256'
+git push -u -f origin dev
+
+22/Sep/2022
+ 
+acquisition :
+python3 /data/dsp/oscilloscope/acq_md03054_raw_data_HDF5.py
+
+spectrum ploting:
+python3 /data/dsp/oscilloscope/quick_view_spec_plot_hdf5.py /data/dsp/oscilloscope/22_09_2022_RRI/rawburst_osc_MSO_3045_22_09_2022_18_09_13_275169.hdf5
+
+
+23/sep/2022
+
+/data/dsp/oscilloscope$ python3 /data/dsp/oscilloscope/quick_view_spec_plot_hdf5.py /data/dsp/oscilloscope/22_09_2022_RRI/rawburst_osc_MSO_3045_22_09_2022_18_09_13_275169.hdf5 0 150
+
+create public SSH id with github mailid and add key in github account (example available in github)
+git init
+git add quick_view_spec_plot_hdf5.py
+git config --global user.email arulpandian05101995@gmail.com
+git config --global user.name  Arul16psp05
+git remote add origin ssh://git@github.com/Arul16psp05/dsp_lab_tpm.git
+git commit -m 'Plots averaged spectrum for a single raw burst hdf5 file'
+git switch -c dev
+git push -u -f origin dev
+
+04/oct/2022
+
+move more number of files
+
+find -maxdepth 1 -name '*.hdf5' -exec mv -t ../ {} +
+
+05/oct/2022
+
+ 1909  git config --list
+ 1910  git add plot_spectrogram_osc_data.py 
+ 1911  git commit -m 'plot dynamic spectra -- osciloscope burst mode data'
+ 1912  git switch dev
+ 1913  git push -u origin dev
+
