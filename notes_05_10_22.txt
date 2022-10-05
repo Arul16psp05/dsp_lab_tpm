@@ -95,4 +95,11 @@ find -maxdepth 1 -name '*.hdf5' -exec mv -t ../ {} +
  1911  git commit -m 'plot dynamic spectra -- osciloscope burst mode data'
  1912  git switch dev
  1913  git push -u origin dev
+ 
+ 
+ python3 tpm_sky_scan_quick_view_v2p2.py 0 60 80 85 2022,10,4,0,0 2022,10,6,0,0 /data/dsp/oscilloscope/osc_obs/04_10_2022
+ 
+ 
+dsp@RRI-D-595:/data/dsp/oscilloscope$ python3 plot_spectrogram_osc_data.py /data/dsp/oscilloscope/osc_obs/04_10_2022 0
+
 
